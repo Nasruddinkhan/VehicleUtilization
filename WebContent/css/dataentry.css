@@ -1,0 +1,16 @@
+.idwidth{
+	width:65px;
+}
+.vnumber{
+width: 114px;
+
+}
+.fa-eye:hover, .fa-edit:hover, .fa-trash-o:hover{
+	
+	text-align:center;
+	background-color: seagreen;
+	width:18px;
+	height:18px;
+	border-radius:3px;
+	color: white;
+}

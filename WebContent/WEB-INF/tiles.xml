@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE tiles-definitions PUBLIC  
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"  
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">  
+<tiles-definitions>  
+    <definition name="base.definition"  
+        template="/WEB-INF/views/layout.jsp">  
+        <put-attribute name="title" value="SMS" />   
+        <put-attribute name="header" value="/WEB-INF/views/header.jsp" />  
+        <put-attribute name="menu" value="/WEB-INF/views/menu.jsp" />  
+        <put-attribute name="body" value="" />  
+        <put-attribute name="footer" value="/WEB-INF/views/footer.jsp" />  
+    </definition>  
+   
+    <definition name="home" extends="base.definition">  
+         
+        <put-attribute name="body" value="/WEB-INF/views/home.jsp" />  
+    </definition>  
+    
+     <!--  <definition name="login" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/login.jsp" />  
+         <put-attribute name="header" value="" />  
+        <put-attribute name="menu" value="" />  
+        <put-attribute name="footer" value="" /> 
+    </definition>   
+    
+    <definition name="logOut" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/logOut.jsp" />  
+         <put-attribute name="header" value="" />  
+        <put-attribute name="menu" value="" />  
+        <put-attribute name="footer" value="" /> 
+    </definition> -->
+    
+      <definition name="userList" extends="base.definition">   
+                    
+        <put-attribute name="body" value="/WEB-INF/views/userList.jsp" />         
+    </definition> 
+     <definition name="sessionExpired" extends="base.definition">          
+        <put-attribute name="body" value="/sessionExpired.jsp" />         
+    </definition> 
+    
+     <definition name="addUser" extends="base.definition">
+     
+        <put-attribute name="body" value="/WEB-INF/views/addUser.jsp" />         
+    </definition>
+     <!-- <definition name="viewUser" extends="base.definition">            
+        <put-attribute name="body" value="/WEB-INF/views/viewUser.jsp" />         
+    </definition> -->
+    <definition name="fileTab" extends="base.definition">          
+       <put-attribute name="body" value="/WEB-INF/views/filetab.jsp" />                 
+    </definition>
+    <definition name="fileUpload" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/fileUpload.jsp" />         
+    </definition>
+    <definition name="fileList" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/fileList.jsp" />         
+    </definition>
+     <definition name="fileData" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/fileData.jsp" />         
+    </definition>
+    <definition name="changePassword" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/changePassword.jsp" />         
+    </definition>
+    <definition name="fileDataUpdate" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/fileDataUpdate.jsp" />         
+    </definition>    
+     <definition name="printTab" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/printTab.jsp" />         
+    </definition>   
+    <definition name="applicantSearch" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/applicantSearch.jsp" />         
+    </definition>   
+    <definition name="applicantConfirm" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/views/applicantConfirm.jsp" />         
+    </definition>  
+    <definition name="printCheckerTab" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/printCheckerTab.jsp" />         
+    </definition>    
+      <definition name="viewApplicant" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/viewApplicant.jsp" />         
+    </definition> 
+    <definition name="student" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/views/student.jsp" />         
+    </definition>
+         <definition name="reportList" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/views/report.jsp" />         
+    </definition>
+    <definition name="yearlyReport" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/views/yearlyReport.jsp" />         
+    </definition>
+    <definition name="monthlyReport" extends="base.definition">
+        <put-attribute name="body" value="/WEB-INF/views/monthlyReport.jsp" />
+    </definition>
+      <definition name="EFTTab" extends="base.definition">          
+       <put-attribute name="body" value="/WEB-INF/views/eft/EFTTab.jsp" />                 
+    </definition>
+    <definition name="eftTransferUpload" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/eft/EFTTransferUpload.jsp" />         
+    </definition>
+    <definition name="eftList" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/eft/EFTList.jsp" />         
+    </definition>
+     <definition name="EFTTransferDetails" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/eft/EFTTransferDetails.jsp" />         
+    </definition>
+     <definition name="EFTCheckerTab" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/eft/EFTCheckerTab.jsp" />         
+    </definition>  
+     <definition name="showChequePrint" extends="base.definition">          
+        <put-attribute name="body" value="/WEB-INF/views/print/chequePrint.jsp" />         
+    </definition> 
+  <definition name="dataEntryList" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/dataEntryList.jsp" />         
+    </definition> 
+     <definition name="addDataEntry" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/addDataEntry.jsp" />         
+    </definition>
+ 
+    <definition name="vehicleslist" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/vehicleslist.jsp" />         
+    </definition>
+    
+     <definition name="addVehicle" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/addVehicle.jsp" />         
+    </definition>
+    
+    <definition name="sites" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/sites.jsp" />         
+    </definition> 
+    
+    <definition name="addSite" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/addSite.jsp" />         
+    </definition> 
+    
+    <definition name="siteList" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/siteList.jsp" />         
+    </definition> 
+    
+   <!--  <definition name="viewSite" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/viewSite.jsp" />         
+    </definition> -->
+        <definition name="vendor" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/vendor.jsp" />         
+    </definition> 
+    
+    <definition name="addVendors" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/addVendors.jsp" />         
+    </definition>
+    <definition name="vendorsList" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/vendorsList.jsp" />         
+    </definition>
+    <definition name="export" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/export.jsp" />         
+    </definition>
+    <definition name="import" extends="base.definition">                   
+        <put-attribute name="body" value="/WEB-INF/views/import.jsp" />         
+    </definition>
+</tiles-definitions> 

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.0.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<context:property-placeholder location="file:C:/SMS/SMS-Config/database_mysql.properties" properties-ref=""/>	
+	<context:component-scan base-package="com.project.millatinventory" />
+	<tx:annotation-driven transaction-manager="mySQLTransactionManager"/>
+	<!-- <tx:annotation-driven transaction-manager="oracleTransactionManager"/> -->
+ <mvc:annotation-driven />
+	
+<bean id="viewResolver"  
+        class="org.springframework.web.servlet.view.UrlBasedViewResolver">  
+        <property name="viewClass">  
+            <value>  
+                org.springframework.web.servlet.view.tiles2.TilesView  
+            </value>  
+        </property>
+        <property name="order" value="0"></property>  
+    </bean>  
+<bean id="jspViewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+		<property name="order" value="1"></property>
+	</bean> 
+	 <bean id="mySQLDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${mysql.database.driver}" />
+		<property name="url" value="${mysql.database.url}" />
+		<property name="username" value="${mysql.database.user}" />
+		<property name="password" value="${mysql.database.password}" />
+	</bean> 
+	
+	
+	<bean id="mySQLSessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="mySQLDataSource" />
+		<property name="annotatedClasses">
+			<list>
+				<value>com.project.millatinventory.model.BaseBean</value>
+				<!-- <value>com.project.millatinventory.model.DetailLookup</value>	
+				<value>com.project.millatinventory.model.DetailInsert</value>
+				<value>com.project.millatinventory.model.ApplicantAccount</value>
+				<value>com.project.millatinventory.model.ApplicantTypeLookup</value>
+				<value>com.project.millatinventory.model.AccountTable</value>
+				<value>com.project.millatinventory.model.Student</value>		
+				<value>com.project.millatinventory.model.Subject</value>	
+				<value>com.project.millatinventory.model.Deal</value>	
+				<value>com.project.millatinventory.model.Portfolio</value>
+				<value>com.project.millatinventory.model.Dormancy</value>	
+				<value>com.project.millatinventory.model.FileHeader</value>
+				<value>com.project.millatinventory.model.FileData</value>
+				<value>com.project.millatinventory.model.Department</value>
+ -->				<value>com.project.millatinventory.model.Users</value>
+			<!-- 	<value>com.project.millatinventory.model.Report</value> -->
+				<value>com.project.millatinventory.model.DataEntry</value>		
+				<value>com.project.millatinventory.model.Vehicle</value>
+				<value>com.project.millatinventory.model.Sites</value>
+				<value>com.project.millatinventory.model.Moter</value>		
+				<value>com.project.millatinventory.model.Expenses</value>
+				<value>com.project.millatinventory.model.Vendors</value>
+				<value>com.project.millatinventory.model.DataEntryExpense</value>																	
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${mysql.hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>				
+			</props>
+		</property>
+	</bean>
+	
+<!-- 	 <bean id="oracleDataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="${oracle.database.driver}" />
+		<property name="url" value="${oracle.database.url}" />
+		<property name="username" value="${oracle.database.user}" />
+		<property name="password" value="${oracle.database.password}" />
+	</bean> 
+	<bean id="oracleSessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+		<property name="dataSource" ref="oracleDataSource" />
+		<property name="annotatedClasses">
+			<list>				
+				<value>com.project.millatinventory.model.FileHeader</value>
+				<value>com.project.millatinventory.model.FileData</value>
+				<value>com.project.millatinventory.model.Department</value>
+				<value>com.project.millatinventory.model.Users</value>
+				<value>com.project.millatinventory.model.Cheque</value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${oracle.hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>				
+			</props>
+		</property>
+	</bean> -->
+	<bean id="mySQLTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="mySQLSessionFactory" />
+	</bean>
+	<!-- <bean id="oracleTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="oracleSessionFactory" />
+	</bean>
+	 -->
+	<bean id="tilesConfigurer"  
+        class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">  
+        <property name="definitions">  
+            <list>  
+                <value>/WEB-INF/tiles.xml</value>  
+            </list>  
+        </property>  
+    </bean> 
+    <bean id="multipartResolver"    class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1000000" />
+    </bean> 
+     <bean id="messageSource"
+        class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="/WEB-INF/messages" />
+    </bean>
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    	<property name="dataSource" ref="mySQLDataSource" />
+    </bean>
+</beans>

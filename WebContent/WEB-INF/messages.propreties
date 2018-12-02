@@ -1,0 +1,10 @@
+NotEmpty.users.loginId=Please enter enter your user
+NotEmpty.users.email=your password is incorrect
+NotEmpty.users.userName=your password is incorrect
+NotEmpty.users.password=your password is incorrect
+NotEmpty.users.userLevel=your password is incorrect
+NotEmpty.users.email=your password is incorrect
+NotEmpty.users.dateOfBirth=your password is incorrect
+NotEmpty.users.gender=your password is incorrect
+NotEmpty.users.status=your password is incorrect
+NotEmpty.users.dateOfBirth=your password is incorrect
